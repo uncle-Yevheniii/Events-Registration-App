@@ -1,0 +1,24 @@
+{
+    "name": "events-registration-app",
+    "module": "index.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "NODE_ENV=development bun run --hot ./BE/index.ts",
+        "write": "bun prettier . --write && echo 'Done.'"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "prettier": "3.3.3"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "imports": {
+        "#db/*": "./BE/db/*",
+        "#models/*": "./BE/models/*",
+        "#helpers/*": "./BE/helpers/*",
+        "#services/*": "./BE/services/*",
+        "#middlewares/*": "./BE/middlewares/*",
+        "#controllers/*": "./BE/controllers/*"
+    }
+}
