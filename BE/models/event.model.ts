@@ -42,7 +42,7 @@ const EventSchema: Schema = new Schema(
                 fullName: String,
                 email: String,
                 dateOfBirth: Date,
-                aboutEvent: String
+                aboutEvent: Object.values(AboutEventEnum)
             }
         ]
     },

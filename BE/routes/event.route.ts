@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { createEvent, allEvents, currentEvent } from '#controllers/index'
+import { createEvent, allEvents, currentEvent, registerEvent } from '#controllers/index'
 
 export const router = express.Router()
 
@@ -10,3 +10,4 @@ router.post('/create-event', createEvent)
 //! PUBLIC ROUTE
 router.get('/all-events', allEvents)
 router.get('/current-event/:id', currentEvent)
+router.post('/register-event/:id', registerEvent)
