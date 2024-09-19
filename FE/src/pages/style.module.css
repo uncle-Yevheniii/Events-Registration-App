@@ -1,0 +1,21 @@
+.eventsPage__wrapper {
+    padding: 3rem;
+}
+.eventsPage__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.eventsPage__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+.eventsPage__listItems {
+    border: 1px solid black;
+    padding: 2rem;
+}
+.eventsPage__listLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
