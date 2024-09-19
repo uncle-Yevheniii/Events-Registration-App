@@ -24,7 +24,7 @@ export default async function createEventController(req: Request, res: Response)
         await newEvent.save()
         return res.status(201).json({
             success: true,
-            msg: 'User created successfully',
+            msg: 'Event created successfully',
             newEvent
         })
     } catch (err) {
