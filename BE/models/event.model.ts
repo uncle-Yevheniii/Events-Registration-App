@@ -31,11 +31,11 @@ export interface IEventModel extends IEvent, Document {
 
 const EventSchema: Schema = new Schema(
     {
-        eventList: {
+        eventInfo: {
             title: { type: String, required: true },
             description: { type: String, required: true },
-            eventDate: { type: Date, required: true },
-            organizer: { type: String, required: true }
+            organizer: { type: String, required: true },
+            eventDate: { type: Date, default: Date.now }
         },
         eventParticipants: [
             {

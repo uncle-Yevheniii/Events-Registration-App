@@ -19,7 +19,7 @@ app.get('/health', (_: Request, res: Response) => res.status(200).json({ success
 
 /** Routes **/
 const prefix = '/api'
-app.use(`${prefix}/users`, eventRouter)
+app.use(`${prefix}/events`, eventRouter)
 
 app.all('*', (_: Request, res: Response) => res.status(404).json({ success: false, msg: 'Page not found' }))
 
