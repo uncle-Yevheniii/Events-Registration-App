@@ -1,11 +1,12 @@
 import express from 'express'
 
-import { createEventController, allEventsController } from '#controllers/index'
+import { createEvent, allEvents, currentEvent } from '#controllers/index'
 
 export const router = express.Router()
 
 //! NOT PUBLIC ROUTE
-router.post('/create-event', createEventController)
+router.post('/create-event', createEvent)
 
 //! PUBLIC ROUTE
-router.get('/all-events', allEventsController)
+router.get('/all-events', allEvents)
+router.get('/current-event/:id', currentEvent)
