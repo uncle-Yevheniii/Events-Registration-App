@@ -19,6 +19,7 @@
     "imports": {
         "#db/*": "./BE/db/*",
         "#models/*": "./BE/models/*",
+        "#routes/*": "./BE/routes/*",
         "#helpers/*": "./BE/helpers/*",
         "#services/*": "./BE/services/*",
         "#middlewares/*": "./BE/middlewares/*",

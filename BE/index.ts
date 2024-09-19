@@ -5,7 +5,7 @@ import express, { type Request, type Response } from 'express'
 
 import { connectDB } from '#db/connect'
 import { Logger } from '#helpers/logger'
-// import { router as userRouter } from './routes/user.route'
+import { router as eventRouter } from '#routes/event.route'
 
 dotenv.config()
 
@@ -19,7 +19,7 @@ app.get('/health', (_: Request, res: Response) => res.status(200).json({ success
 
 /** Routes **/
 const prefix = '/api'
-// app.use(`${prefix}/users`, userRouter)
+app.use(`${prefix}/users`, eventRouter)
 
 app.all('*', (_: Request, res: Response) => res.status(404).json({ success: false, msg: 'Page not found' }))
 

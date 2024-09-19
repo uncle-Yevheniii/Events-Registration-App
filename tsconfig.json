@@ -12,6 +12,7 @@
         "paths": {
             "#db/*": ["./db/*"],
             "#models/*": ["./models/*"],
+            "#routes/*": ["./routes/*"],
             "#helpers/*": ["./helpers/*"],
             "#services/*": ["./services/*"],
             "#middlewares/*": ["./middlewares/*"],
