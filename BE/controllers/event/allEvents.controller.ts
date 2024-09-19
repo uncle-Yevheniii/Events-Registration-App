@@ -3,9 +3,14 @@ import type { Response, Request } from 'express'
 import Event from '#models/event.model'
 import { Logger } from '#helpers/logger'
 
-export default async function allEventsController(_: Request, res: Response) {
+export default async function allEventsController(req: Request, res: Response) {
     try {
+        const page = Number(req.query.p) || 0
+        const eventPerPage = 3
+
         const events = await Event.find()
+            .skip(page * eventPerPage)
+            .limit(eventPerPage)
 
         return res.status(200).json({
             success: true,
