@@ -6,7 +6,7 @@ import { Logger } from '#helpers/logger'
 export default async function allEventsController(req: Request, res: Response) {
     try {
         const page = Number(req.query.p) || 0
-        const eventPerPage = 3
+        const eventPerPage = 6
 
         const events = await Event.find()
             .skip(page * eventPerPage)

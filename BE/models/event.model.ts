@@ -1,28 +1,27 @@
 import mongoose, { Document, Schema } from 'mongoose'
 
-enum AboutEventEnum {
+export enum AboutEventEnum {
     SOCIAL_MEDIA = 'Social media',
     FRIENDS = 'Friends',
     FOUND_MYSELF = 'Found myself'
 }
-
-export interface IEvent {
-    eventInfo: {
-        title: string
-        description: string
-        eventDate: Date | string
-        organizer: string
-    }
-    eventParticipants: [
-        {
-            fullName: string
-            email: string
-            dateOfBirth: Date | string
-            aboutEvent: AboutEventEnum
-        }
-    ]
+export type IEventInfo = {
+    title: string
+    description: string
+    eventDate: Date | string
+    organizer: string
+}
+export type IParticipantsInfo = {
+    fullName: string
+    email: string
+    dateOfBirth: Date | string
+    aboutEvent: AboutEventEnum
 }
 
+export interface IEvent {
+    eventInfo: IEventInfo
+    eventParticipants: [IParticipantsInfo]
+}
 export interface IEventModel extends IEvent, Document {
     _id: mongoose.Types.ObjectId
     createdAt: Date

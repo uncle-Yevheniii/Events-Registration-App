@@ -7,17 +7,16 @@ import { Logger } from '#helpers/logger'
 
 export default async function createEventController(req: Request, res: Response) {
     try {
-        const { eventInfo } = req.body
+        const { title, description, organizer } = req.body
 
-        if (!eventInfo.title || !eventInfo.description || !eventInfo.organizer)
-            res.status(400).json({ success: false, msg: 'All fields are required' })
+        if (!title || !description || !organizer) res.status(400).json({ success: false, msg: 'All fields are required' })
 
         const newEvent = new Event({
             _id: new mongoose.Types.ObjectId(),
             eventInfo: {
-                title: eventInfo.title,
-                description: eventInfo.description,
-                organizer: eventInfo.organizer
+                title,
+                description,
+                organizer
             }
         })
 

@@ -8,9 +8,11 @@
         "jsx": "react-jsx",
         "allowJs": true,
 
+        "typeRoots": ["./node_modules/@types", "./BE/types"],
         "baseUrl": "./BE",
         "paths": {
             "#db/*": ["./db/*"],
+            "#types/*": ["./types/*"],
             "#models/*": ["./models/*"],
             "#routes/*": ["./routes/*"],
             "#helpers/*": ["./helpers/*"],
