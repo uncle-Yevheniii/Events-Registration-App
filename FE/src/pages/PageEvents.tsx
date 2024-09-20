@@ -4,13 +4,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { allEvents } from '@/api/allEvents.api'
 
 import style from './style.module.css'
+import { Pagination } from '@/components'
+import { IEvent } from '@/types/type'
 
 export default function EventsPage() {
-    const [data, setData] = useState([]) //TODO: type
+    const [data, setData] = useState<IEvent[]>([]) //TODO: type ✔
     const [error, setError] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
-
-    const PER_PAGE: number = 6
 
     const location = useLocation()
     const navigate = useNavigate()
@@ -64,29 +64,7 @@ export default function EventsPage() {
                             ))}
                         </ul>
 
-                        <div>
-                            {/* //TODO: Add pagination ✔ */}
-                            <button
-                                type="button"
-                                disabled={currentPage === 1}
-                                onClick={() => {
-                                    // if (currentPage === 1) return
-                                    handlePageChange(currentPage - 1)
-                                }}
-                            >
-                                Previous Page
-                            </button>
-                            <button
-                                type="button"
-                                disabled={data.length < PER_PAGE}
-                                onClick={() => {
-                                    // if (data.length < PER_PAGE) return
-                                    handlePageChange(currentPage + 1)
-                                }}
-                            >
-                                Next Page
-                            </button>
-                        </div>
+                        <Pagination data={data} currentPage={currentPage} handlePageChange={handlePageChange} />
                     </div>
                 )
             )}
