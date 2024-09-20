@@ -1,9 +1,9 @@
-import { useNavigate, useParams } from 'react-router-dom'
 import { Formik, Form, FormikHelpers } from 'formik'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import { Input } from '@/components'
-import { registerEvent } from '@/api/registerEvent'
 import { AboutEventEnum, Values } from '@/types/type'
+import { registerEvent } from '@/api/registerEvent.api'
 import { validationSchema } from '@/helpers/validation'
 
 export default function RegisterEventPage() {
@@ -14,7 +14,7 @@ export default function RegisterEventPage() {
         registerEvent(evenId ?? '', values)
             .then((res) => {
                 console.log(res)
-                navigate('/view-event/' + evenId)
+                navigate('/current-event/' + evenId)
             })
             .catch((err) => {
                 console.log(err)
@@ -25,6 +25,10 @@ export default function RegisterEventPage() {
     return (
         <div>
             <h2>Event registration</h2>
+
+            <div>
+                <Link to="/events">Back to events</Link>
+            </div>
 
             <Formik
                 initialValues={{

@@ -6,7 +6,7 @@ import { allEvents } from '@/api/allEvents.api'
 import style from './style.module.css'
 
 export default function EventsPage() {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]) //TODO: type
     const [error, setError] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -46,13 +46,14 @@ export default function EventsPage() {
 
                                     <div>
                                         <Link to={`/register-event/${_id}`}>Register event</Link>
-                                        <Link to={`/view-event/${_id}`}>View event</Link>
+                                        <Link to={`/current-event/${_id}`}>View event</Link>
                                     </div>
                                 </li>
                             ))}
                         </ul>
 
                         <div>
+                            {/* //TODO: Add pagination */}
                             <button type="button">prev</button>
                             <button type="button">next</button>
                         </div>

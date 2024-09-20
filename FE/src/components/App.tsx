@@ -7,7 +7,7 @@ export default function App() {
             <Routes>
                 <Route path="/events" element={<EventsPage />} />
                 <Route path="/register-event/:evenId" element={<RegisterEventPage />} />
-                <Route path="/view-event/:evenId" element={<ViewEventPage />} />
+                <Route path="/current-event/:evenId" element={<ViewEventPage />} />
 
                 <Route path="*" element={<Navigate to="/events" replace />} />
             </Routes>
