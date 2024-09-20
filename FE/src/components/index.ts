@@ -1,4 +1,7 @@
 export { default as Input } from './ui/Input'
+export { default as Title } from './ui/Title'
 export { default as Pagination } from './ui/Pagination'
+export { default as CurrentClearList } from './ui/CurrentClearList'
 export { default as AllEventsListItem } from './ui/AllEventsListItems'
-export { default as CurrentEventsListItem } from './ui/CurrentEventListItems'
+export { default as CurrentEventListItems } from './ui/CurrentEventListItems'
+export { default as CurrentEventNavigation } from './ui/CurrentEventNavigation'

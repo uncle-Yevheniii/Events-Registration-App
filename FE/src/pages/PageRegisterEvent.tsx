@@ -1,7 +1,7 @@
 import { Formik, Form, FormikHelpers } from 'formik'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
-import { Input } from '@/components'
+import { Input, Title } from '@/components'
 import { AboutEventEnum, Values } from '@/types/type'
 import { registerEvent } from '@/api/registerEvent.api'
 import { validationSchema } from '@/helpers/validation'
@@ -24,7 +24,7 @@ export default function RegisterEventPage() {
 
     return (
         <div>
-            <h2>Event registration</h2>
+            <Title>Event registration</Title>
 
             <div>
                 <Link to="/events">Back to events</Link>

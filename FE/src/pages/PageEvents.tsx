@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 import { IEvent } from '@/types/type'
 import { allEvents } from '@/api/allEvents.api'
-import { AllEventsListItem, Pagination } from '@/components'
+import { AllEventsListItem, Pagination, Title } from '@/components'
 
 import style from './style.module.css'
 
@@ -41,7 +41,7 @@ export default function EventsPage() {
 
     return (
         <div className={style.eventsPage__wrapper}>
-            <h2 className={style.eventsPage__title}>Events</h2>
+            <Title>Events</Title>
             {error && <p>Something went wrong</p>}
             {loading ? (
                 <p>Loading...</p>
