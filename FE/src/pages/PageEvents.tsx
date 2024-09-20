@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import { allEvents } from '@/api/allEvents.api'
 
@@ -9,9 +9,18 @@ export default function EventsPage() {
     const [data, setData] = useState([]) //TODO: type
     const [error, setError] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
-    const [currentPage, setSetCurrentPage] = useState<number>(0)
 
     const PER_PAGE: number = 6
+
+    const location = useLocation()
+    const navigate = useNavigate()
+    const queryParams = new URLSearchParams(location.search)
+    const currentPage = Number(queryParams.get('page')) || 1
+
+    function handlePageChange(newPage: string) {
+        queryParams.set('page', newPage)
+        navigate({ search: queryParams.toString() })
+    }
 
     useEffect(() => {
         const controller = new AbortController()
@@ -56,26 +65,26 @@ export default function EventsPage() {
                         </ul>
 
                         <div>
-                            {/* //TODO: Add pagination */}
+                            {/* //TODO: Add pagination ✔ */}
                             <button
                                 type="button"
-                                disabled={currentPage === 0}
+                                disabled={currentPage === 1}
                                 onClick={() => {
-                                    if (currentPage === 0) return
-                                    setSetCurrentPage(currentPage - 1)
+                                    // if (currentPage === 1) return
+                                    handlePageChange(currentPage - 1)
                                 }}
                             >
-                                prev
+                                Previous Page
                             </button>
                             <button
                                 type="button"
                                 disabled={data.length < PER_PAGE}
                                 onClick={() => {
-                                    if (data.length < PER_PAGE) return
-                                    setSetCurrentPage(currentPage + 1)
+                                    // if (data.length < PER_PAGE) return
+                                    handlePageChange(currentPage + 1)
                                 }}
                             >
-                                next
+                                Next Page
                             </button>
                         </div>
                     </div>
