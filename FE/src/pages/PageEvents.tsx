@@ -17,8 +17,8 @@ export default function EventsPage() {
     const queryParams = new URLSearchParams(location.search)
     const currentPage = Number(queryParams.get('page')) || 1
 
-    function handlePageChange(newPage: string) {
-        queryParams.set('page', newPage)
+    function handlePageChange(newPage: string | number) {
+        queryParams.set('page', newPage as string)
         navigate({ search: queryParams.toString() })
     }
 
