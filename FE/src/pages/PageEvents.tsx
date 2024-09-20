@@ -9,13 +9,16 @@ export default function EventsPage() {
     const [data, setData] = useState([]) //TODO: type
     const [error, setError] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
+    const [currentPage, setSetCurrentPage] = useState<number>(0)
+
+    const PER_PAGE: number = 6
 
     useEffect(() => {
         const controller = new AbortController()
 
         const fetchData = () => {
             setLoading(true)
-            allEvents(controller)
+            allEvents(currentPage, controller)
                 .then((res) => {
                     setData(res.events)
                 })
@@ -25,7 +28,7 @@ export default function EventsPage() {
         fetchData()
 
         return () => controller.abort()
-    }, [])
+    }, [currentPage])
 
     return (
         <div className={style.eventsPage__wrapper}>
@@ -54,8 +57,26 @@ export default function EventsPage() {
 
                         <div>
                             {/* //TODO: Add pagination */}
-                            <button type="button">prev</button>
-                            <button type="button">next</button>
+                            <button
+                                type="button"
+                                disabled={currentPage === 0}
+                                onClick={() => {
+                                    if (currentPage === 0) return
+                                    setSetCurrentPage(currentPage - 1)
+                                }}
+                            >
+                                prev
+                            </button>
+                            <button
+                                type="button"
+                                disabled={data.length < PER_PAGE}
+                                onClick={() => {
+                                    if (data.length < PER_PAGE) return
+                                    setSetCurrentPage(currentPage + 1)
+                                }}
+                            >
+                                next
+                            </button>
                         </div>
                     </div>
                 )
