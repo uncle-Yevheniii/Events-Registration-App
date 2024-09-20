@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
+import { IEvent } from '@/types/type'
 import { allEvents } from '@/api/allEvents.api'
+import { EventsListItem, Pagination } from '@/components'
 
 import style from './style.module.css'
-import { Pagination } from '@/components'
-import { IEvent } from '@/types/type'
 
 export default function EventsPage() {
     const [data, setData] = useState<IEvent[]>([]) //TODO: type ✔
@@ -48,21 +48,7 @@ export default function EventsPage() {
             ) : (
                 data.length > 0 && (
                     <div>
-                        <ul>
-                            {data.map(({ _id, eventInfo: { title, description, eventDate, organizer } }) => (
-                                <li key={_id}>
-                                    <p>{title}</p>
-                                    <p>{description}</p>
-                                    <p>{organizer}</p>
-                                    <p>{eventDate}</p>
-
-                                    <div>
-                                        <Link to={`/register-event/${_id}`}>Register event</Link>
-                                        <Link to={`/current-event/${_id}`}>View event</Link>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
+                        <EventsListItem data={data} />
 
                         <Pagination data={data} currentPage={currentPage} handlePageChange={handlePageChange} />
                     </div>
