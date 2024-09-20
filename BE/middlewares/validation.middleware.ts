@@ -37,7 +37,7 @@ export const schema = {
     }),
 
     registerEvent: Joi.object<IParticipantsInfo>({
-        fullName: Joi.string().min(6).max(25).required().messages({
+        fullName: Joi.string().min(6).max(50).required().messages({
             'any.required': 'Full name is required',
             'string.min': 'Full name must be at least 6 characters long',
             'string.max': 'Full name must be at most 25 characters long'
@@ -49,7 +49,13 @@ export const schema = {
                 'string.email': 'Email must be valid',
                 'any.required': 'Email is required'
             }),
-        dateOfBirth: Joi.string().required(), //TODO add date validation
+        dateOfBirth: Joi.string()
+            .pattern(/^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-(19|20)\d{2}$/)
+            .required()
+            .messages({
+                'string.pattern.base': 'Date of birth must be in format: DD-MM-YYYY',
+                'any.required': 'Date of birth is required'
+            }), //TODO add date validation ✔
         aboutEvent: Joi.string()
             .valid(...Object.values(AboutEventEnum))
             .required()
