@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 import { IEvent } from '@/types/type'
 import { allEvents } from '@/api/allEvents.api'
-import { EventsListItem, Pagination } from '@/components'
+import { AllEventsListItem, Pagination } from '@/components'
 
 import style from './style.module.css'
 
@@ -48,7 +48,7 @@ export default function EventsPage() {
             ) : (
                 data.length > 0 && (
                     <div>
-                        <EventsListItem data={data} />
+                        <AllEventsListItem data={data} />
 
                         <Pagination data={data} currentPage={currentPage} handlePageChange={handlePageChange} />
                     </div>

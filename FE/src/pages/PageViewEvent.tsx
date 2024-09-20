@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+
+import { IParticipantsInfo } from '@/types/type'
+import { CurrentEventsListItem } from '@/components'
 import { currentEvent } from '@/api/currentEvent.api'
 
 export default function ViewEventPage() {
-    const [data, setData] = useState([]) //TODO: type
+    const [data, setData] = useState<IParticipantsInfo[]>([]) //TODO: type ✔
     const [error, setError] = useState<boolean>(false)
     const [loading, setLoading] = useState<boolean>(false)
 
@@ -39,16 +42,7 @@ export default function ViewEventPage() {
                         <Link to={`/register-event/${evenId}`}>Register yourself</Link>
                     </div>
 
-                    <ul>
-                        {data.map((item, index) => (
-                            <li key={index}>
-                                <p>{item.fullName}</p>
-                                <p>{item.email}</p>
-                                <p>{item.dateOfBirth}</p>
-                                <p>{item.aboutEvent[0]}</p>
-                            </li>
-                        ))}
-                    </ul>
+                    <CurrentEventsListItem data={data} />
                 </div>
             ) : (
                 <div>

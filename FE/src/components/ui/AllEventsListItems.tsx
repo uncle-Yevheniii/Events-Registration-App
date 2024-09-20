@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 import { IEvent } from '@/types/type'
 
-export default function EventsListItem({ data }: { data: IEvent[] }) {
+export default function AllEventsListItem({ data }: { data: IEvent[] }) {
     return (
         <ul>
             {data.map((item: IEvent) => (
