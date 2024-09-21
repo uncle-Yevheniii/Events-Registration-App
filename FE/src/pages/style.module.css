@@ -15,6 +15,9 @@
     transition: all ease-in;
 }
 .registerEvent__form {
+    max-width: 30rem;
+    display: block;
+    margin: auto;
     border-radius: 0.2rem;
     border: 0.05rem solid #212121;
     padding: 2rem 4rem;
