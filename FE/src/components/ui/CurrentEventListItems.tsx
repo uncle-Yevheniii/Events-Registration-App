@@ -1,14 +1,16 @@
 import { IParticipantsInfo } from '@/types/type'
 
+import style from './style.module.css'
+
 export default function CurrentEventListItems({ data }: { data: IParticipantsInfo[] }) {
     return (
-        <ul>
+        <ul className={style.currentEventListItems__list}>
             {data.map((item, index: number) => (
-                <li key={index}>
-                    <p>{item.fullName}</p>
-                    <p>{item.email}</p>
-                    <p>{item.dateOfBirth}</p>
-                    <p>{item.aboutEvent[0]}</p>
+                <li key={index} className={style.currentEventListItems__listItems}>
+                    <p className={style.currentEventListItems__listTitle}>{item.fullName}</p>
+                    <p className={style.currentEventListItems__listEmail}>{item.email}</p>
+                    <p className={style.currentEventListItems__listText}>{item.dateOfBirth}</p>
+                    <p className={style.currentEventListItems__listText}>{item.aboutEvent[0]}</p>
                 </li>
             ))}
         </ul>

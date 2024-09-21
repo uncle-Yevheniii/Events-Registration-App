@@ -10,9 +10,13 @@
     font-size: 0.8rem;
     padding: 0.2rem 0.5rem;
     color: #fafafa;
-    background-color: #7cb9e8;
+    background-color: #6cb4ee;
     border-radius: 0.3rem;
     transition: all ease-in;
+}
+.registerEvent__link:hover,
+.registerEvent__link:focus {
+    background-color: #7cb9e8;
 }
 .registerEvent__form {
     max-width: 30rem;
