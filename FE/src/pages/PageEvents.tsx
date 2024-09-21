@@ -46,7 +46,7 @@ export default function EventsPage() {
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                data && (
+                data.length > 0 && (
                     <div className={style.eventsPage__content}>
                         <AllEventsListItem data={data} />
 
