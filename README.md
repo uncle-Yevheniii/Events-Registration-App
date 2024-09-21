@@ -3,10 +3,22 @@
 ElifTech School [Test task]
 
 
-
 ## ! Warning, the project is implemented on the free Render hosting, so the first launch may be delayed !
 
 Both the server part (./BE) and the client part (./FE) are implemented in the repository
+
+#### The following dependencies were used in the project:
+
+| Be (server): | FE (client):    | 
+| :-------- | :------- | 
+| `mongoose` | `axios` | 
+| `express` | `formik` | 
+| `dotenv` | `react-router-dom` | 
+| `cors` | `yup` | 
+| `clors` | `react-helmet-async` | 
+| `joi` | | 
+
+
 
 ## BE API Reference
 Implemented: [Create an event, Get all events, Get a current event by its ID and Register for a current event]. 
@@ -72,3 +84,8 @@ PER_PAGE = 6
 | `title`      | `string` | **Required** .min(6).max(50) |
 | `description`      | `string` | **Required** .max(255) |
 | `organizer`      | `string` | **Required** .min(6).max(25). |
+
+## FE Reference
+Implemented routing: [Get all events, get the current event by its ID and register for the current event].
+
+In addition, there is data validation when registering for the current event, pagination is present.
