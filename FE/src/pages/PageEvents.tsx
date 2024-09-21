@@ -47,7 +47,7 @@ export default function EventsPage() {
                 <p>Loading...</p>
             ) : (
                 data.length > 0 && (
-                    <div>
+                    <div className={style.eventsPage__content}>
                         <AllEventsListItem data={data} />
 
                         <Pagination data={data} currentPage={currentPage} handlePageChange={handlePageChange} />

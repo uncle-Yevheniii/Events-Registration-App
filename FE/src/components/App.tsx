@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { EventsPage, RegisterEventPage, ViewEventPage } from '@/pages'
 export default function App() {
     return (
-        <div>
+        <div style={{ padding: '3rem' }}>
             <Routes>
                 <Route path="/events" element={<EventsPage />} />
                 <Route path="/register-event/:evenId" element={<RegisterEventPage />} />
