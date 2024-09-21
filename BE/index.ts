@@ -22,7 +22,17 @@ app.get('/health', (_: Request, res: Response) => res.status(200).json({ success
 
 /** Static Server **/
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '/FE/dist')))
+    app.use(
+        express.static(path.join(__dirname, '/FE/dist'), {
+            etag: false, // Вимикаємо ETag
+            maxAge: '0', // Вимикаємо кешування
+            setHeaders: (res, _path) => {
+                res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate')
+                res.setHeader('Pragma', 'no-cache')
+                res.setHeader('Expires', '0')
+            }
+        })
+    )
 
     app.get('*', (_: Request, res: Response) => {
         res.sendFile(path.join(__dirname, '/FE', 'dist', 'index.html'))
