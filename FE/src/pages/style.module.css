@@ -23,35 +23,6 @@
     padding: 2rem 4rem;
     margin-bottom: 2rem;
 }
-
-.registerEvent__formItem {
-    margin-bottom: 1rem;
-}
-.registerEvent__error {
-    font-size: 0.8rem;
-    color: #aa0000;
-}
-.registerEvent__radioWrapper {
-    margin-bottom: 0.8rem;
-}
-.registerEvent__radioTitleWrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 1rem;
-}
-.registerEvent__radioTitle {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
-}
-.registerEvent__radioList {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
 .registerEvent__button {
     display: block;
     margin: auto;
