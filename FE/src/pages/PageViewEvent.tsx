@@ -35,7 +35,7 @@ export default function ViewEventPage() {
             {error && <p>Something went wrong</p>}
             {loading ? (
                 <p>Loading...</p>
-            ) : data.length > 0 ? (
+            ) : data ? (
                 <div>
                     <CurrentEventNavigation evenId={evenId ?? ''} />
                     <CurrentEventListItems data={data} />

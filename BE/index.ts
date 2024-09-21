@@ -1,5 +1,6 @@
 import http from 'http'
 import cors from 'cors'
+import path from 'path'
 import dotenv from 'dotenv'
 import express, { type Request, type Response } from 'express'
 
@@ -11,11 +12,22 @@ dotenv.config()
 
 const app = express()
 
+const __dirname = path.resolve()
+
 app.use(express.json())
-app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:5174'], credentials: true }))
+app.use(cors({ origin: '*', credentials: true }))
 
 /** Ping Server **/
 app.get('/health', (_: Request, res: Response) => res.status(200).json({ success: true, msg: 'Server is up and running' }))
+
+/** Static Server **/
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '/FE/dist')))
+
+    app.get('*', (_: Request, res: Response) => {
+        res.sendFile(path.join(__dirname, '/FE', 'dist', 'index.html'))
+    })
+}
 
 /** Routes **/
 const prefix = '/api'

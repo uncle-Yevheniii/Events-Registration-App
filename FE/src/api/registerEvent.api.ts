@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { Values } from '@/types/type'
 
-const URI = 'http://localhost:8080/api/events'
+const URI = import.meta.env.MODE === 'development' ? 'http://localhost:8080/api/events' : '/api/events'
 
 export async function registerEvent(evenId: string, values: Values) {
     const res = await axios.post(`${URI}/register-event/${evenId}`, {
